@@ -1,4 +1,15 @@
 #region Using declarations
+/*
+ * AGNES-BOT Trade Template MVP
+ * Author: Olar Sa'id
+ * GitHub: https://github.com/ol-s-cloud/agnes-bot
+ * Email: gs_wl889@icloud.com
+ * Version: 1.0
+ * 
+ * Educational trading software - use at your own risk.
+ * Always test on simulation before live trading.
+ */
+ 
 using System;
 using System.IO;
 using System.Net;
