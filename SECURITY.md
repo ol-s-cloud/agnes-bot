@@ -40,7 +40,7 @@ Instead, please report them privately using one of these methods:
 3. Fill out the private security advisory form
 
 ### Alternative Method: Email
-Send an email to: [your-email@domain.com] with:
+Send an email to: [gs_wl889@icloud.com] with:
 - Subject: "Security Vulnerability - Trade Template MVP"
 - Detailed description of the vulnerability
 - Steps to reproduce the issue
