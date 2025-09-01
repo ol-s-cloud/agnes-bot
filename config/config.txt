@@ -20,8 +20,8 @@ range_max_ticks=24
 account_mode=demo
 
 # ===== Versioning (for hot-reload feedback) =====
-config_version=v1
-# ISO-8601 in UTC (append 'Z'), e.g. 2025-09-01T12:34:56Z
+config_version=v1-github
+# ISO-8601 **UTC** (use 'Z' at the end). Example: 2025-09-01T12:34:56Z
 updated_at=2025-09-01T00:00:00Z
 
 # ===== Validation Bounds (optional overrides) =====
@@ -37,8 +37,9 @@ max_range_ticks=500
 poll_seconds=5
 
 # ===== Paths (optional) =====
-# Full local path for last-known-good (LKG). Leave blank to use Documents.
-lkg_path=
+# LKG = "last-known-good" file path on your local computer.
+# You can leave this empty to use the default, OR set your exact local path:
+lkg_path=/Users/gs/Documents/NinjaTrader8/templates/strategy/trade_template_last_good.config
 
 # ===== Placeholders (do NOT put real secrets in public repos) =====
 # api_key_placeholder=
