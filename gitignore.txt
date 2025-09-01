@@ -1,0 +1,70 @@
+# Trading Bot - Security First
+
+# === NEVER COMMIT THESE ===
+# Real API keys, passwords, or credentials
+*api_key*
+*password*
+*secret*
+*credential*
+*token*
+
+# Local configuration files with sensitive data
+*local*.config
+*private*.config
+*live*.config
+
+# Trading account information
+account_*.txt
+broker_*.json
+
+# === Development ===
+# Visual Studio / VS Code
+.vs/
+.vscode/
+*.user
+*.suo
+bin/
+obj/
+
+# NinjaTrader generated files
+*.ninjatrader
+*.ntws
+
+# Node.js (if added later)
+node_modules/
+npm-debug.log*
+
+# === Logs ===
+*.log
+logs/
+*.tmp
+
+# === OS Generated ===
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# === Backup Files ===
+*.bak
+*.backup
+*.old
+
+# === Temporary Files ===
+*.temp
+*.swp
+*~
+
+# === IDE ===
+*.ide
+*.ide-wal
+*.ide-shm
+
+# === Deployment ===
+.vercel
+.env
+.env.local
+.env.production
