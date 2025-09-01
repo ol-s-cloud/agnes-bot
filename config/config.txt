@@ -1,3 +1,8 @@
+# AGNES-BOT Trade Template MVP
+# Author: Olar Sa'id | GitHub: https://github.com/ol-s-cloud/agnes-bot
+# Educational purpose only - trading involves substantial risk
+# ===============================================================
+
 # ===== Strategy Parameters =====
 ema_fast=10
 ema_mid=50
