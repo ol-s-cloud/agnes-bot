@@ -122,6 +122,18 @@ The web interface supports:
 - **Platforms**: Windows 10/11 (64-bit)
 - **Data Providers**: All supported (Kinetick, Interactive Brokers, etc.)
 
+  ---
+
+## Author & Contact
+
+**Authored by:** Olar Sa'id  
+**GitHub:** [@ol-s-cloud](https://github.com/ol-s-cloud)  
+**Repository:** [AGNES-BOT](https://github.com/ol-s-cloud/agnes-bot)  
+
+*If this project helped you, please star the repository and consider contributing!*
+
+**Disclaimer:** Educational software only. Trading involves substantial risk. Always test thoroughly on simulation accounts before live trading.
+
 ---
 
 *For detailed technical documentation, see [DOCS.md](DOCS.md)*
