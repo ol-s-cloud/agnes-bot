@@ -107,6 +107,40 @@ quantity=2
 # api_key=your_secret_key_here
 ```
 
+## Filters (Imbalance, FVG, Range)
+
+The strategy supports three optional filters to refine trade entries.  
+They are **disabled by default** in `config/config.txt`, but you can turn them on in either the GitHub config or your **local override file**.
+
+### 🔹 1. Imbalance Filter
+- Key: `use_imbalance`
+- Checks if candle body ≥ 60% of bar range.
+- Long trades require close > open, shorts require close < open.
+- Blocks weak candles.
+
+### 🔹 2. FVG (Fair Value Gap) Filter
+- Key: `use_fvg`
+- Uses a 3-bar pattern:
+  - Bullish FVG → `Low[1] > High[2]`
+  - Bearish FVG → `High[1] < Low[2]`
+- Blocks trades if no FVG in the right direction.
+
+### 🔹 3. Range Filter
+- Keys: `use_range_filter`, `range_lookback`, `range_max_ticks`
+- Looks back `range_lookback` bars, measures `High - Low`.
+- If range > `range_max_ticks * TickSize`, trade is blocked (market too wide).
+
+### ✅ Example local override
+Put this in your local config file to enable all three filters:
+
+```txt
+use_fvg=true
+use_imbalance=true
+use_range_filter=true
+range_lookback=20
+range_max_ticks=24
+
+
 ##  Contributing
 
 Contributions welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) first.
