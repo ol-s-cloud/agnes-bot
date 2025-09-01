@@ -39,7 +39,7 @@ poll_seconds=5
 # ===== Paths (optional) =====
 # LKG = "last-known-good" file path on your local computer.
 # You can leave this empty to use the default, OR set your exact local path:
-lkg_path=/Users/gs/Documents/NinjaTrader8/templates/strategy/trade_template_last_good.config
+lkg_path=/Users/gs/Documents/NinjaTrader8/templates/strategy/trade_template_local.config
 
 # ===== Placeholders (do NOT put real secrets in public repos) =====
 # api_key_placeholder=
