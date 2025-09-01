@@ -1,1 +1,46 @@
+# ===== Strategy Parameters =====
+ema_fast=10
+ema_mid=50
+ema_slow=200
 
+tp_ticks=20
+sl_ticks=16
+quantity=1
+
+# Optional filters
+use_fvg=false
+use_imbalance=false
+use_range_filter=false
+range_lookback=20
+range_max_ticks=24
+
+# ===== Account / Safety =====
+# demo => requires Sim account (e.g., Sim101)
+# live => blocks Sim accounts; use a non-Sim account
+account_mode=demo
+
+# ===== Versioning (for hot-reload feedback) =====
+config_version=v1
+# ISO-8601 in UTC (append 'Z'), e.g. 2025-09-01T12:34:56Z
+updated_at=2025-09-01T00:00:00Z
+
+# ===== Validation Bounds (optional overrides) =====
+# Conservative defaults; raise only if needed.
+max_ema_length=1000
+max_ticks=500
+max_quantity=50
+max_range_lookback=1000
+max_range_ticks=500
+
+# ===== Polling (seconds) =====
+# How often the strategy polls config sources (min 1).
+poll_seconds=5
+
+# ===== Paths (optional) =====
+# Full local path for last-known-good (LKG). Leave blank to use Documents.
+lkg_path=
+
+# ===== Placeholders (do NOT put real secrets in public repos) =====
+# api_key_placeholder=
+# rithmic_user_placeholder=
+# rithmic_system_placeholder=
