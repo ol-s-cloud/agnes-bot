@@ -1,1 +1,125 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Trade Template — EMA Config</title>
+  <style>
+    :root { --w: 760px; }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, sans-serif; margin: 32px; }
+    h1 { margin: 0 0 8px; }
+    .note { color:#666; font-size:13px; margin-bottom:18px; }
+    .grid { display:grid; grid-template-columns: repeat(2, minmax(240px, 1fr)); gap:12px; max-width:var(--w); }
+    label { display:flex; flex-direction:column; gap:6px; font-size:14px; }
+    input[type="number"], input[type="text"], select { padding:8px; }
+    .row { display:flex; align-items:center; gap:10px; font-size:14px; }
+    textarea { width:100%; max-width:var(--w); height:260px; margin-top:14px; }
+    button { padding:10px 16px; margin-top:12px; }
+    .muted { font-size:12px; color:#666; margin-top:8px; }
+    .pill { display:inline-block; padding:4px 8px; border:1px solid #ddd; border-radius:999px; font-size:12px; margin-right:6px; }
+  </style>
+</head>
+<body>
+  <h1>Trade Template — EMA Config</h1>
+  <div class="note">
+    1) Adjust values → 2) Click <b>Copy Config</b> → 3) Paste into GitHub <code>config/config.txt</code> → Commit.<br/>
+    NinjaTrader polls the GitHub URL. Your <b>local file</b> (if set) overrides values and keeps secrets private.
+  </div>
 
+  <div class="grid">
+    <label>ema_fast <input id="ema_fast" type="number" value="10" min="1" max="1000"></label>
+    <label>ema_mid <input id="ema_mid" type="number" value="50" min="1" max="1000"></label>
+    <label>ema_slow <input id="ema_slow" type="number" value="200" min="1" max="1000"></label>
+
+    <label>tp_ticks <input id="tp_ticks" type="number" value="20" min="1" max="500"></label>
+    <label>sl_ticks <input id="sl_ticks" type="number" value="16" min="1" max="500"></label>
+    <label>quantity <input id="quantity" type="number" value="1" min="1" max="50"></label>
+
+    <label class="row"><input id="use_fvg" type="checkbox"> use_fvg</label>
+    <label class="row"><input id="use_imbalance" type="checkbox"> use_imbalance</label>
+    <label class="row"><input id="use_range_filter" type="checkbox"> use_range_filter</label>
+
+    <label>range_lookback <input id="range_lookback" type="number" value="20" min="2" max="1000"></label>
+    <label>range_max_ticks <input id="range_max_ticks" type="number" value="24" min="1" max="500"></label>
+
+    <label>account_mode
+      <select id="account_mode">
+        <option value="demo" selected>demo (Sim101)</option>
+        <option value="live">live (Non-Sim)</option>
+      </select>
+    </label>
+
+    <label>config_version <input id="config_version" type="text" value="v1"></label>
+    <label>updated_at <input id="updated_at" type="text" value=""></label>
+
+    <label>max_ema_length <input id="max_ema_length" type="number" value="1000" min="100" max="10000"></label>
+    <label>max_ticks <input id="max_ticks" type="number" value="500" min="10" max="10000"></label>
+    <label>max_quantity <input id="max_quantity" type="number" value="50" min="1" max="10000"></label>
+    <label>max_range_lookback <input id="max_range_lookback" type="number" value="1000" min="10" max="20000"></label>
+    <label>max_range_ticks <input id="max_range_ticks" type="number" value="500" min="10" max="10000"></label>
+
+    <label>poll_seconds <input id="poll_seconds" type="number" value="5" min="1" max="300"></label>
+    <label>lkg_path <input id="lkg_path" type="text" value=""></label>
+  </div>
+
+  <button onclick="copyConfig()">Copy Config</button>
+  <textarea id="out" readonly></textarea>
+  <div class="muted">
+    Paste into <code>config/config.txt</code> → Commit. In GitHub, click <span class="pill">Raw</span> to get the URL for NinjaTrader’s <code>ConfigUrl</code>.
+  </div>
+
+  <script>
+    function isoNow(){ return new Date().toISOString(); }
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('updated_at').value = isoNow();
+    });
+
+    function val(id){
+      const el=document.getElementById(id);
+      if (el.type==='checkbox') return el.checked;
+      return el.value;
+    }
+
+    function buildKV(){
+      const entries = [
+        ['ema_fast', val('ema_fast')],
+        ['ema_mid', val('ema_mid')],
+        ['ema_slow', val('ema_slow')],
+        ['tp_ticks', val('tp_ticks')],
+        ['sl_ticks', val('sl_ticks')],
+        ['quantity', val('quantity')],
+        ['use_fvg', val('use_fvg')],
+        ['use_imbalance', val('use_imbalance')],
+        ['use_range_filter', val('use_range_filter')],
+        ['range_lookback', val('range_lookback')],
+        ['range_max_ticks', val('range_max_ticks')],
+        ['account_mode', val('account_mode')],
+        ['config_version', val('config_version')],
+        ['updated_at', val('updated_at') || isoNow()],
+
+        ['max_ema_length', val('max_ema_length')],
+        ['max_ticks', val('max_ticks')],
+        ['max_quantity', val('max_quantity')],
+        ['max_range_lookback', val('max_range_lookback')],
+        ['max_range_ticks', val('max_range_ticks')],
+
+        ['poll_seconds', val('poll_seconds')],
+        ['lkg_path', val('lkg_path')],
+
+        ['# api_key_placeholder', ''],
+        ['# rithmic_user_placeholder', ''],
+        ['# rithmic_system_placeholder', '']
+      ];
+      return entries.map(([k,v]) => `${k}=${v}`).join('\n');
+    }
+
+    function copyConfig(){
+      document.getElementById('updated_at').value = isoNow();
+      const text = buildKV();
+      document.getElementById('out').value = text;
+      navigator.clipboard.writeText(text);
+      alert('Config copied! Paste into config/config.txt on GitHub and Commit.');
+    }
+  </script>
+</body>
+</html>
