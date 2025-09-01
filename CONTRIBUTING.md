@@ -295,6 +295,19 @@ Contributors will be:
 - [ ] Make changes with proper testing
 - [ ] Submit pull request with clear description
 
+---
+
+## Author & Contact
+
+**Authored by:** Olar Sa'id  
+**GitHub:** [@ol-s-cloud](https://github.com/ol-s-cloud)  
+**Repository:** [AGNES-BOT](https://github.com/ol-s-cloud/agnes-bot)  
+
+*If this project helped you, please star the repository and consider contributing!*
+
+**Disclaimer:** Educational software only. Trading involves substantial risk. Always test thoroughly on simulation accounts before live trading.
+
+
 **Remember: Always prioritize risk management and thorough testing in a simulation environment before any live trading application.**
 
 Thanks for contributing to making algorithmic trading more accessible and safer for everyone!
